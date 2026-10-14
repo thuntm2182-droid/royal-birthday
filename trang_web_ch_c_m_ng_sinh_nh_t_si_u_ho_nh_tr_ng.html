@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="vi" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc Mừng Sinh Nhật Siêu Hoành Tráng & Lộng Lẫy!</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            100: '#FFFDE7',
+                            300: '#FFE082',
+                            400: '#FFD54F',
+                            500: '#FFC107',
+                            600: '#FFB300',
+                            700: '#FFA000',
+                        },
+                        velvet: '#0B051D'
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        pacifico: ['Pacifico', 'cursive'],
+                        dancing: ['Dancing Script', 'cursive'],
+                        serifDisplay: ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Canvas Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Montserrat:wght@300;400;600;700;800;900&family=Pacifico&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #08031A;
+            color: #f8fafc;
+            overflow-x: hidden;
+            user-select: none;
+        }
+
+        /* Gold Metallic Gradient Animation */
+        .gold-shimmer-text {
+            background: linear-gradient(135deg, #FFF5C0 0%, #F1C40F 20%, #FFFFFF 40%, #E67E22 60%, #F39C12 80%, #FFF5C0 100%);
+            background-size: 300% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmerGold 4s linear infinite;
+            filter: drop-shadow(0 0 20px rgba(241, 196, 15, 0.5));
+        }
+
+        @keyframes shimmerGold {
+            0% { background-position: 0% center; }
+            100% { background-position: 300% center; }
+        }
+
+        /* Candle Flame Physics Animation */
+        .flame {
+            background: radial-gradient(ellipse at bottom, #ffffff 0%, #ffeb3b 30%, #ff9800 65%, rgba(255, 87, 34, 0) 100%);
+            border-radius: 50% 50% 20% 20%;
+            transform-origin: center bottom;
+            animation: candleFlicker 0.12s ease-in-out infinite alternate;
+            box-shadow: 0 0 20px #ff9800, 0 -12px 25px #ff5722;
+        }
+
+        @keyframes candleFlicker {
+            0% { transform: scale(1) rotate(-3deg); opacity: 0.92; }
+            50% { transform: scale(1.1) rotate(1deg); opacity: 1; }
+            100% { transform: scale(1.18) rotate(3deg); opacity: 0.95; }
+        }
+
+        /* Realistic Smoke Wisp */
+        .smoke-particle {
+            position: absolute;
+            width: 10px;
+            height: 30px;
+            background: rgba(220, 220, 225, 0.7);
+            border-radius: 50%;
+            filter: blur(5px);
+            animation: smokeRise 2.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        @keyframes smokeRise {
+            0% { opacity: 0.9; transform: translateY(0) scaleX(1); }
+            100% { opacity: 0; transform: translateY(-80px) scaleX(3.5) rotate(20deg); }
+        }
+
+        /* Polaroid 3D Tilt Card */
+        .polaroid-card {
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-style: preserve-3d;
+        }
+        .polaroid-card:hover {
+            transform: translateY(-12px) scale(1.05) rotate(0deg) !important;
+            box-shadow: 0 25px 50px -12px rgba(245, 158, 11, 0.4);
+            z-index: 30;
+        }
+
+        /* 3D Gift Box idle animation */
+        .gift-box-idle {
+            animation: giftIdle 2.5s infinite ease-in-out;
+        }
+
+        @keyframes giftIdle {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-8px) rotate(-3deg); }
+            75% { transform: translateY(-5px) rotate(3deg); }
+        }
+
+        /* 3D Card Flip Perspective */
+        .perspective-1200 { perspective: 1200px; }
+        .transform-style-3d { transform-style: preserve-3d; }
+        .backface-hidden { backface-visibility: hidden; }
+
+        .card-inner {
+            transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .card-inner.is-flipped {
+            transform: rotateY(180deg);
+        }
+
+        /* Custom scrollbar for gallery and modals */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(15, 23, 42, 0.8);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #ec4899, #eab308);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="relative min-h-screen flex flex-col justify-between items-center text-center p-3 md:p-6">
+
+    <!-- Background Space & Shooting Stars Canvas -->
+    <canvas id="starCanvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
+    
+    <!-- Pro Fireworks Physics Canvas -->
+    <canvas id="fireworksCanvas" class="fixed inset-0 pointer-events-none z-10"></canvas>
+
+    <!-- Floating 3D Balloons Container -->
+    <div id="balloonsContainer" class="fixed inset-0 pointer-events-none z-0 overflow-hidden"></div>
+
+    <!-- Top Action Control Bar -->
+    <header class="relative z-40 w-full max-w-6xl flex flex-wrap justify-between items-center gap-3 py-3 px-5 backdrop-blur-xl bg-slate-900/60 rounded-3xl border border-amber-400/20 shadow-2xl mt-1">
+        
+        <div class="flex items-center space-x-3">
+            <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-amber-400 via-pink-500 to-purple-600 flex items-center justify-center text-white shadow-lg shadow-pink-500/30 animate-pulse">
+                <i class="fa-solid fa-crown text-xl text-yellow-200"></i>
+            </div>
+            <div class="text-left">
+                <span class="block font-black text-lg bg-clip-text text-transparent bg-gradient-to-r from-amber-300 via-pink-300 to-purple-300">ROYAL BIRTHDAY</span>
+                <span class="text-[10px] text-amber-200/70 tracking-widest uppercase font-semibold">Luxury Celebration</span>
+            </div>
+        </div>
+
+        <!-- Controls Group -->
+        <div class="flex flex-wrap items-center gap-2">
+            <!-- Mic Blow Sensor Button -->
+            <button id="micBtn" onclick="toggleMicBlowDetection()" class="px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700/80 border border-cyan-400/40 text-cyan-300 text-xs md:text-sm font-semibold transition-all duration-300 flex items-center space-x-2 shadow-md hover:scale-105">
+                <i id="micIcon" class="fa-solid fa-microphone text-cyan-400"></i>
+                <span id="micStatusText">Bật Micro Thổi Nến</span>
+            </button>
+
+            <!-- Music Player Toggle -->
+            <button id="musicToggleBtn" onclick="toggleAudio()" class="px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700/80 border border-pink-400/40 text-pink-300 text-xs md:text-sm font-semibold transition-all duration-300 flex items-center space-x-2 shadow-md hover:scale-105">
+                <i id="musicIcon" class="fa-solid fa-music text-pink-400"></i>
+                <span id="musicText">Bật Nhạc</span>
+            </button>
+
+            <!-- Edit Customization Settings -->
+            <button onclick="openModal('customizeModal')" class="px-4 py-2 rounded-full bg-gradient-to-r from-amber-500 to-pink-600 hover:from-amber-400 hover:to-pink-500 text-slate-950 font-extrabold text-xs md:text-sm transition-all duration-300 flex items-center space-x-2 shadow-lg shadow-amber-500/20 hover:scale-105 active:scale-95">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                <span>Tùy Chỉnh</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content Stage -->
+    <main class="relative z-20 my-auto py-6 flex flex-col items-center justify-center max-w-5xl w-full space-y-10">
+
+        <!-- Title Banner -->
+        <div class="space-y-3">
+            <div class="inline-flex items-center space-x-2 px-5 py-1.5 rounded-full bg-amber-400/10 border border-amber-400/30 backdrop-blur-md">
+                <i class="fa-solid fa-sparkles text-amber-300 text-sm"></i>
+                <span class="text-xs md:text-sm font-bold tracking-widest text-amber-200 uppercase">SỰ KIỆN ĐẶC BIỆT TRONG NGÀY</span>
+                <i class="fa-solid fa-sparkles text-amber-300 text-sm"></i>
+            </div>
+
+            <h1 id="displayTitle" class="text-4xl md:text-7xl font-black uppercase tracking-tight gold-shimmer-text py-2">
+                CHÚC MỪNG SINH NHẬT
+            </h1>
+
+            <div class="flex items-center justify-center space-x-3 flex-wrap">
+                <span id="displayName" class="text-3xl md:text-6xl font-pacifico text-pink-400 drop-shadow-[0_0_25px_rgba(244,114,182,0.8)]">
+                    Công Chúa Nhỏ
+                </span>
+                <div id="displayAgeBadge" class="relative group cursor-pointer inline-flex items-center justify-center px-5 py-1.5 rounded-2xl bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 font-black text-xl md:text-3xl shadow-xl shadow-amber-500/30 transform rotate-3 hover:rotate-0 transition-transform">
+                    <span id="displayAge">18</span>
+                    <span class="text-xs md:text-sm font-bold ml-1 uppercase">Tuổi</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interactive 3-Tier Cake Section -->
+        <div class="relative flex flex-col items-center">
+            
+            <!-- Dynamic Candle Blow Guidance Floating Banner -->
+            <div id="blowPrompt" class="mb-5 px-6 py-2.5 rounded-2xl bg-gradient-to-r from-pink-500/20 via-purple-500/20 to-amber-500/20 border border-white/20 backdrop-blur-xl text-amber-200 text-xs md:text-sm font-semibold shadow-2xl flex items-center space-x-3 animate-bounce">
+                <i class="fa-solid fa-microphone-lines text-cyan-400 text-base animate-pulse"></i>
+                <span id="blowPromptText">Nhấn "Thổi Nến" hoặc Bật Micro và thổi thật mạnh vào mic nhé!</span>
+            </div>
+
+            <!-- Cake Render Base -->
+            <div id="cakeArea" onclick="blowOutCandles()" class="cursor-pointer group relative flex flex-col items-center transition-transform duration-500 hover:scale-105">
+                
+                <!-- 5 Realistic Flickering Candles -->
+                <div class="flex justify-center space-x-5 relative z-30 mb-[-12px]">
+                    <!-- Candle 1 -->
+                    <div class="candle relative flex flex-col items-center">
+                        <div class="flame-wrapper relative flex justify-center">
+                            <div class="flame w-4 h-7"></div>
+                        </div>
+                        <div class="w-3 h-12 bg-gradient-to-r from-pink-300 via-pink-100 to-pink-400 rounded-t-sm shadow-md border-b-2 border-pink-500"></div>
+                    </div>
+                    <!-- Candle 2 -->
+                    <div class="candle relative flex flex-col items-center -mt-2">
+                        <div class="flame-wrapper relative flex justify-center">
+                            <div class="flame w-4.5 h-8"></div>
+                        </div>
+                        <div class="w-3.5 h-14 bg-gradient-to-r from-amber-200 via-amber-100 to-amber-400 rounded-t-sm shadow-md border-b-2 border-amber-500"></div>
+                    </div>
+                    <!-- Candle 3 (Center Apex) -->
+                    <div class="candle relative flex flex-col items-center -mt-4">
+                        <div class="flame-wrapper relative flex justify-center">
+                            <div class="flame w-5 h-9"></div>
+                        </div>
+                        <div class="w-4 h-16 bg-gradient-to-r from-cyan-200 via-cyan-100 to-cyan-400 rounded-t-sm shadow-md border-b-2 border-cyan-500"></div>
+                    </div>
+                    <!-- Candle 4 -->
+                    <div class="candle relative flex flex-col items-center -mt-2">
+                        <div class="flame-wrapper relative flex justify-center">
+                            <div class="flame w-4.5 h-8"></div>
+                        </div>
+                        <div class="w-3.5 h-14 bg-gradient-to-r from-purple-200 via-purple-100 to-purple-400 rounded-t-sm shadow-md border-b-2 border-purple-500"></div>
+                    </div>
+                    <!-- Candle 5 -->
+                    <div class="candle relative flex flex-col items-center">
+                        <div class="flame-wrapper relative flex justify-center">
+                            <div class="flame w-4 h-7"></div>
+                        </div>
+                        <div class="w-3 h-12 bg-gradient-to-r from-emerald-200 via-emerald-100 to-emerald-400 rounded-t-sm shadow-md border-b-2 border-emerald-500"></div>
+                    </div>
+                </div>
+
+                <!-- Tier 1 (Top Layer) -->
+                <div class="relative w-48 h-16 bg-gradient-to-r from-pink-500 via-pink-400 to-pink-600 rounded-t-3xl border-t-4 border-white/80 shadow-inner flex flex-col justify-between items-center overflow-hidden z-20">
+                    <div class="w-full h-6 bg-white/95 rounded-b-2xl shadow-md flex justify-around">
+                        <div class="w-4 h-7 bg-white/95 rounded-b-full"></div>
+                        <div class="w-5 h-9 bg-white/95 rounded-b-full"></div>
+                        <div class="w-4 h-6 bg-white/95 rounded-b-full"></div>
+                        <div class="w-6 h-8 bg-white/95 rounded-b-full"></div>
+                        <div class="w-4 h-7 bg-white/95 rounded-b-full"></div>
+                    </div>
+                    <!-- Candy Pearl Toppings -->
+                    <div class="w-full flex justify-around px-4 mb-2">
+                        <span class="w-2.5 h-2.5 rounded-full bg-yellow-300 shadow"></span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-cyan-300 shadow"></span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-purple-300 shadow"></span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-red-400 shadow"></span>
+                    </div>
+                </div>
+
+                <!-- Tier 2 (Middle Layer) -->
+                <div class="relative w-68 h-20 bg-gradient-to-r from-purple-700 via-purple-600 to-purple-800 rounded-t-3xl border-t-4 border-amber-300/60 shadow-xl flex flex-col justify-between items-center overflow-hidden z-10 -mt-2" style="width: 18rem;">
+                    <div class="w-full h-7 bg-pink-100/95 rounded-b-2xl shadow-md flex justify-around">
+                        <div class="w-7 h-8 bg-pink-100/95 rounded-b-full"></div>
+                        <div class="w-6 h-10 bg-pink-100/95 rounded-b-full"></div>
+                        <div class="w-8 h-7 bg-pink-100/95 rounded-b-full"></div>
+                        <div class="w-6 h-9 bg-pink-100/95 rounded-b-full"></div>
+                    </div>
+                    <div class="w-full flex justify-evenly px-6 mb-3">
+                        <div class="w-3.5 h-3.5 rounded-full bg-amber-400 shadow-md border border-white/50"></div>
+                        <div class="w-3.5 h-3.5 rounded-full bg-amber-400 shadow-md border border-white/50"></div>
+                        <div class="w-3.5 h-3.5 rounded-full bg-amber-400 shadow-md border border-white/50"></div>
+                        <div class="w-3.5 h-3.5 rounded-full bg-amber-400 shadow-md border border-white/50"></div>
+                    </div>
+                </div>
+
+                <!-- Tier 3 (Bottom Layer) -->
+                <div class="relative w-88 h-24 bg-gradient-to-r from-amber-700 via-amber-600 to-amber-800 rounded-t-3xl border-t-4 border-amber-200/80 shadow-2xl flex flex-col justify-between items-center overflow-hidden -mt-2" style="width: 22rem;">
+                    <div class="w-full h-8 bg-white/95 rounded-b-2xl shadow-md flex justify-around">
+                        <div class="w-9 h-9 bg-white/95 rounded-b-full"></div>
+                        <div class="w-7 h-11 bg-white/95 rounded-b-full"></div>
+                        <div class="w-9 h-8 bg-white/95 rounded-b-full"></div>
+                        <div class="w-8 h-10 bg-white/95 rounded-b-full"></div>
+                        <div class="w-9 h-9 bg-white/95 rounded-b-full"></div>
+                    </div>
+                    <!-- Ribbon Pattern -->
+                    <div class="w-full h-4 bg-gradient-to-r from-pink-600 via-red-500 to-pink-600 shadow-md mb-4 border-y border-amber-300"></div>
+                </div>
+
+                <!-- Gold Cake Plate Base -->
+                <div class="w-[26rem] h-7 bg-gradient-to-r from-amber-300 via-yellow-100 to-amber-500 rounded-full shadow-2xl border-b-4 border-amber-700 -mt-1 flex items-center justify-center">
+                    <div class="w-[24rem] h-2 bg-amber-400/40 rounded-full"></div>
+                </div>
+            </div>
+
+            <!-- Cake Interaction Buttons -->
+            <div class="mt-6 flex flex-wrap gap-3 justify-center items-center">
+                <button onclick="blowOutCandles()" class="px-6 py-3 rounded-full bg-gradient-to-r from-amber-400 via-amber-500 to-pink-500 hover:from-amber-300 hover:to-pink-400 text-slate-950 font-black text-sm md:text-base transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-xl shadow-amber-500/30 flex items-center space-x-2">
+                    <i class="fa-solid fa-wind text-lg"></i>
+                    <span>Thổi Nến & Ước Nguyện</span>
+                </button>
+
+                <button onclick="triggerGrandFireworks()" class="px-6 py-3 rounded-full bg-slate-800/90 hover:bg-slate-700 border border-amber-400/30 text-amber-300 font-bold text-sm md:text-base transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg flex items-center space-x-2">
+                    <i class="fa-solid fa-burst text-yellow-400"></i>
+                    <span>Bắn Pháo Hoa Siêu Cấp</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Interactive 3D Polaroid Memory Photo Album -->
+        <section class="w-full pt-8 border-t border-amber-400/20">
+            <div class="mb-6 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="text-left">
+                    <h2 class="text-2xl md:text-3xl font-extrabold text-amber-300 font-serifDisplay flex items-center space-x-2">
+                        <i class="fa-solid fa-images text-pink-400"></i>
+                        <span>Kỷ Niệm Rực Rỡ & Đáng Nhớ</span>
+                    </h2>
+                    <p class="text-xs md:text-sm text-slate-400">Tải lên những bức hình tuyệt đẹp để lưu giữ khoảnh khắc sinh nhật này</p>
+                </div>
+
+                <!-- Photo Upload Dropzone Button -->
+                <label class="cursor-pointer px-5 py-2.5 rounded-2xl bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-bold text-xs md:text-sm transition shadow-lg shadow-purple-500/30 flex items-center space-x-2 hover:scale-105 active:scale-95">
+                    <i class="fa-solid fa-cloud-arrow-up text-lg"></i>
+                    <span>Tải Ảnh Lên Album</span>
+                    <input type="file" id="photoInput" multiple accept="image/*" class="hidden" onchange="handlePhotoUpload(event)">
+                </label>
+            </div>
+
+            <!-- Polaroid Grid / Carousel Container -->
+            <div id="polaroidGallery" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-2">
+                <!-- Dynamic photos injected via JS -->
+            </div>
+        </section>
+
+        <!-- Magic 3D Unboxing Gift Section -->
+        <section class="w-full pt-10 border-t border-amber-400/20 flex flex-col items-center">
+            <div class="text-center space-y-2 mb-6">
+                <span class="text-xs uppercase font-bold text-pink-400 tracking-widest">Secret Surprise</span>
+                <h3 class="text-2xl md:text-4xl font-extrabold text-amber-300 font-serifDisplay">
+                    Hộp Quà Kỳ Diệu & Lời Chúc Tỏa Sáng
+                </h3>
+                <p class="text-xs md:text-sm text-slate-300">Nhấp vào hộp quà bên dưới để mở thiệp chúc mừng thượng hạng</p>
+            </div>
+
+            <!-- Bouncing 3D Gift Box Button -->
+            <div id="giftBox" onclick="openUnboxingExperience()" class="gift-box-idle cursor-pointer group relative w-36 h-36 flex flex-col items-center justify-end my-4">
+                <!-- Ribbon Bow Top -->
+                <div class="absolute -top-6 z-20 w-20 h-10 flex justify-center items-center">
+                    <div class="w-10 h-10 rounded-full bg-amber-400 border-2 border-amber-200 -mr-3 transform -rotate-12 shadow-lg"></div>
+                    <div class="w-10 h-10 rounded-full bg-amber-400 border-2 border-amber-200 -ml-3 transform rotate-12 shadow-lg"></div>
+                    <div class="absolute w-6 h-6 rounded-full bg-amber-500 shadow-inner"></div>
+                </div>
+                <!-- Box Lid -->
+                <div id="giftLid" class="w-40 h-9 bg-gradient-to-r from-pink-600 via-pink-500 to-pink-700 rounded-lg shadow-xl border-b-2 border-pink-800 relative z-10 flex justify-center items-center transition-all duration-700 group-hover:-translate-y-3">
+                    <div class="w-8 h-full bg-amber-400 shadow-md"></div>
+                </div>
+                <!-- Box Body -->
+                <div class="w-36 h-28 bg-gradient-to-r from-purple-800 via-purple-700 to-purple-900 rounded-b-2xl shadow-2xl relative flex justify-center items-center overflow-hidden border-x border-b border-purple-500/40">
+                    <div class="w-8 h-full bg-amber-400 shadow-md"></div>
+                    <!-- Light aura -->
+                    <div class="absolute inset-0 bg-amber-300/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Royal Greeting Card Modal -->
+    <div id="cardModal" class="fixed inset-0 z-50 flex items-center justify-center p-3 md:p-6 bg-slate-950/85 backdrop-blur-xl opacity-0 pointer-events-none transition-all duration-500">
+        
+        <div class="perspective-1200 w-full max-w-lg h-[620px] relative">
+            
+            <div id="cardInner" class="card-inner w-full h-full transform-style-3d relative rounded-3xl shadow-2xl">
+                
+                <!-- Front Side -->
+                <div class="absolute inset-0 backface-hidden bg-gradient-to-br from-purple-900 via-slate-900 to-pink-950 rounded-3xl p-6 border-2 border-amber-400/50 shadow-2xl flex flex-col justify-between items-center text-center">
+                    <div class="w-full flex justify-end">
+                        <button onclick="closeModal('cardModal')" class="text-white/60 hover:text-white text-2xl transition">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+
+                    <div class="my-auto space-y-4 flex flex-col items-center">
+                        <div class="w-28 h-28 rounded-full bg-amber-400/20 border-2 border-amber-300 flex items-center justify-center text-amber-300 text-5xl shadow-2xl animate-pulse">
+                            <i class="fa-solid fa-envelope-open-text"></i>
+                        </div>
+                        <span class="text-xs font-bold tracking-widest text-amber-300 uppercase">THIỆP CHÚC MỪNG HOÀNG GIA</span>
+                        <h3 id="cardFrontRecipient" class="text-3xl md:text-4xl font-extrabold text-white font-serifDisplay">
+                            Công Chúa Nhỏ
+                        </h3>
+                        <p class="text-sm text-pink-200 font-dancing text-xl">"Chạm vào đây để lật mở những lời chúc ngọt ngào nhất..."</p>
+                    </div>
+
+                    <button onclick="flipCard(true)" class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-black text-base shadow-xl transition transform hover:scale-105 active:scale-95 flex items-center justify-center space-x-2">
+                        <span>Lật Mở Lời Chúc</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Back Side (Letter Page with Typing Effect) -->
+                <div class="absolute inset-0 backface-hidden rotate-y-180 bg-slate-900 border-2 border-amber-400/60 rounded-3xl p-6 shadow-2xl flex flex-col justify-between text-left overflow-hidden">
+                    
+                    <div class="flex justify-between items-center border-b border-amber-400/20 pb-3">
+                        <div class="flex items-center space-x-2 text-xs font-bold text-amber-300 uppercase">
+                            <i class="fa-solid fa-heart text-pink-500"></i>
+                            <span>Lời Chúc Tốt Đẹp Nhất</span>
+                        </div>
+                        <button onclick="flipCard(false)" class="text-xs text-amber-300 hover:underline flex items-center space-x-1">
+                            <i class="fa-solid fa-rotate-left"></i>
+                            <span>Xem Mặt Trước</span>
+                        </button>
+                    </div>
+
+                    <!-- Highlight Memory Photo -->
+                    <div class="my-2 flex justify-center">
+                        <img id="cardHighlightPhoto" src="https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=600&q=80" alt="Highlight" class="w-28 h-28 object-cover rounded-2xl border-2 border-amber-300 shadow-lg">
+                    </div>
+
+                    <!-- Typed Letter Box -->
+                    <div class="bg-slate-950/60 border border-white/10 rounded-2xl p-4 my-2 text-slate-100 text-base font-dancing leading-relaxed h-44 overflow-y-auto">
+                        <p id="typedMessageContainer"></p>
+                    </div>
+
+                    <div class="pt-2 flex justify-between items-center border-t border-amber-400/20">
+                        <div class="text-xs">
+                            <span class="block text-slate-400">Gửi từ trái tim:</span>
+                            <span id="cardSenderSignature" class="font-bold text-amber-300 text-sm">Một Người Bạn Thân Yêu ❤️</span>
+                        </div>
+                        <button onclick="closeModal('cardModal')" class="px-5 py-2 rounded-xl bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 text-white font-bold text-xs shadow transition">
+                            Đóng Thiệp
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Customization Settings Modal -->
+    <div id="customizeModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-xl opacity-0 pointer-events-none transition-all duration-300">
+        <div class="bg-slate-900 border border-amber-400/30 rounded-3xl p-6 max-w-lg w-full shadow-2xl text-left space-y-4 max-h-[90vh] overflow-y-auto">
+            
+            <div class="flex justify-between items-center border-b border-white/10 pb-3">
+                <div class="flex items-center space-x-2 text-amber-300 text-lg font-bold">
+                    <i class="fa-solid fa-sliders"></i>
+                    <span>Tùy Chỉnh Lời Chúc & Nội Dung</span>
+                </div>
+                <button onclick="closeModal('customizeModal')" class="text-white/60 hover:text-white text-2xl">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="space-y-3 text-xs md:text-sm">
+                <div>
+                    <label class="block font-semibold text-slate-300 mb-1">Tên Người Nhận</label>
+                    <input type="text" id="inputName" placeholder="VD: Ngọc Ánh" class="w-full bg-slate-800 border border-white/20 rounded-xl px-4 py-2 text-white focus:outline-none focus:border-amber-400 transition">
+                </div>
+
+                <div>
+                    <label class="block font-semibold text-slate-300 mb-1">Số Tuổi</label>
+                    <input type="number" id="inputAge" placeholder="18" class="w-full bg-slate-800 border border-white/20 rounded-xl px-4 py-2 text-white focus:outline-none focus:border-amber-400 transition">
+                </div>
+
+                <div>
+                    <label class="block font-semibold text-slate-300 mb-1">Tên Người Gửi Signature</label>
+                    <input type="text" id="inputSender" placeholder="VD: Người Bạn Thân Yêu" class="w-full bg-slate-800 border border-white/20 rounded-xl px-4 py-2 text-white focus:outline-none focus:border-amber-400 transition">
+                </div>
+
+                <div>
+                    <label class="block font-semibold text-slate-300 mb-1">Lời Chúc Cá Nhân</label>
+                    <textarea id="inputMessage" rows="4" placeholder="Nhập lời chúc chân thành của bạn..." class="w-full bg-slate-800 border border-white/20 rounded-xl px-4 py-2 text-white focus:outline-none focus:border-amber-400 transition"></textarea>
+                </div>
+            </div>
+
+            <div class="pt-3 flex flex-col sm:flex-row gap-3">
+                <button onclick="applyCustomizations()" class="flex-1 py-3 rounded-xl bg-gradient-to-r from-amber-400 to-pink-600 hover:from-amber-300 hover:to-pink-500 text-slate-950 font-black transition shadow-lg flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-check"></i>
+                    <span>Cập Nhật Ngay</span>
+                </button>
+                <button onclick="generateShareableLink()" class="py-3 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 border border-amber-400/30 text-amber-300 font-bold transition flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-share-nodes"></i>
+                    <span>Tạo Link Chia Sẻ</span>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Lightbox Photo Modal -->
+    <div id="lightboxModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/90 backdrop-blur-2xl opacity-0 pointer-events-none transition-all duration-300">
+        <div class="relative max-w-4xl w-full flex flex-col items-center">
+            <button onclick="closeModal('lightboxModal')" class="absolute -top-12 right-0 text-white hover:text-amber-300 text-3xl transition">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <img id="lightboxImage" src="" alt="Zoomed Photo" class="max-h-[80vh] w-auto rounded-3xl border-4 border-amber-300/60 shadow-2xl object-contain">
+            <p id="lightboxCaption" class="mt-4 text-amber-200 font-serifDisplay text-lg font-bold text-center"></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="relative z-20 mt-10 text-xs text-slate-400 py-4 border-t border-white/10 w-full max-w-5xl">
+        <p>Royal Birthday Interactive Experience • Được thiết kế lộng lẫy dành tặng riêng cho bạn 🎉</p>
+    </footer>
+
+    <script>
+        // Core State Management
+        let appState = {
+            name: "Công Chúa Nhỏ",
+            age: 18,
+            sender: "Một Người Bạn Thân Yêu ❤️",
+            message: "Chúc mừng sinh nhật! Chúc bạn tuổi mới luôn đong đầy niềm vui, sức khỏe rạng rỡ, thành công bứt phá và luôn nở nụ cười tươi thắm trên môi. Mọi điều ước diệu kỳ nhất của bạn hôm nay đều sẽ trở thành hiện thực!",
+            candlesBlown: false,
+            photos: [
+                "https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=600&q=80",
+                "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=600&q=80",
+                "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=600&q=80"
+            ]
+        };
+
+        function initDataFromUrl() {
+            if (window.location.hash) {
+                try {
+                    const hashData = JSON.parse(decodeURIComponent(window.location.hash.substring(1)));
+                    if (hashData.name) appState.name = hashData.name;
+                    if (hashData.age) appState.age = hashData.age;
+                    if (hashData.sender) appState.sender = hashData.sender;
+                    if (hashData.message) appState.message = hashData.message;
+                } catch (e) {
+                    console.error("Failed to parse URL state hash", e);
+                }
+            }
+            renderDOMState();
+            renderPolaroidGallery();
+        }
+
+        function renderDOMState() {
+            document.getElementById('displayName').innerText = appState.name;
+            document.getElementById('cardFrontRecipient').innerText = appState.name;
+            document.getElementById('displayAge').innerText = appState.age;
+            document.getElementById('cardSenderSignature').innerText = appState.sender;
+
+            document.getElementById('inputName').value = appState.name;
+            document.getElementById('inputAge').value = appState.age;
+            document.getElementById('inputSender').value = appState.sender;
+            document.getElementById('inputMessage').value = appState.message;
+        }
+
+        function renderPolaroidGallery() {
+            const gallery = document.getElementById('polaroidGallery');
+            gallery.innerHTML = '';
+
+            appState.photos.forEach((photoUrl, index) => {
+                const rotation = (index % 3 === 0) ? '-rotate-2' : (index % 3 === 1) ? 'rotate-2' : '-rotate-1';
+                
+                const card = document.createElement('div');
+                card.className = `polaroid-card ${rotation} bg-white p-3 rounded-2xl shadow-xl cursor-pointer text-slate-800 border-2 border-amber-300/40`;
+                card.onclick = () => openLightbox(photoUrl, `Khoảnh khắc kỷ niệm #${index + 1}`);
+
+                card.innerHTML = `
+                    <div class="relative overflow-hidden rounded-xl h-52 w-full bg-slate-100">
+                        <img src="${photoUrl}" alt="Memory ${index + 1}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="mt-3 flex justify-between items-center px-1">
+                        <span class="font-dancing text-lg font-bold text-slate-800">Kỷ niệm đáng nhớ #${index + 1}</span>
+                        <i class="fa-solid fa-heart text-pink-500 text-sm"></i>
+                    </div>
+                `;
+                gallery.appendChild(card);
+            });
+        }
+
+        function handlePhotoUpload(event) {
+            const files = event.target.files;
+            if (!files || files.length === 0) return;
+
+            Array.from(files).forEach(file => {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    appState.photos.unshift(e.target.result);
+                    renderPolaroidGallery();
+                };
+                reader.readAsDataURL(file);
+            });
+
+            showToast("Đã thêm ảnh mới vào album kỷ niệm thành công!");
+        }
+
+        function openLightbox(imgUrl, caption) {
+            document.getElementById('lightboxImage').src = imgUrl;
+            document.getElementById('lightboxCaption').innerText = caption;
+            openModal('lightboxModal');
+        }
+
+        const starCanvas = document.getElementById('starCanvas');
+        const starCtx = starCanvas.getContext('2d');
+        let stars = [];
+
+        function resizeStarCanvas() {
+            starCanvas.width = window.innerWidth;
+            starCanvas.height = window.innerHeight;
+            initStars();
+        }
+
+        function initStars() {
+            stars = [];
+            const count = Math.floor((starCanvas.width * starCanvas.height) / 2500);
+            for (let i = 0; i < count; i++) {
+                stars.push({
+                    x: Math.random() * starCanvas.width,
+                    y: Math.random() * starCanvas.height,
+                    radius: Math.random() * 1.6 + 0.4,
+                    alpha: Math.random(),
+                    speed: Math.random() * 0.02 + 0.005
+                });
+            }
+        }
+
+        function drawStars() {
+            starCtx.clearRect(0, 0, starCanvas.width, starCanvas.height);
+            stars.forEach(star => {
+                star.alpha += star.speed;
+                if (star.alpha > 1 || star.alpha < 0) star.speed = -star.speed;
+                starCtx.beginPath();
+                starCtx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+                starCtx.fillStyle = `rgba(255, 255, 255, ${Math.abs(star.alpha)})`;
+                starCtx.fill();
+            });
+            requestAnimationFrame(drawStars);
+        }
+
+        const fwCanvas = document.getElementById('fireworksCanvas');
+        const fwCtx = fwCanvas.getContext('2d');
+        let fwParticles = [];
+
+        function resizeFwCanvas() {
+            fwCanvas.width = window.innerWidth;
+            fwCanvas.height = window.innerHeight;
+        }
+
+        class ProParticle {
+            constructor(x, y, color) {
+                this.x = x;
+                this.y = y;
+                this.color = color;
+                const angle = Math.random() * Math.PI * 2;
+                const speed = Math.random() * 8 + 2;
+                this.vx = Math.cos(angle) * speed;
+                this.vy = Math.sin(angle) * speed;
+                this.alpha = 1;
+                this.decay = Math.random() * 0.018 + 0.012;
+                this.gravity = 0.12;
+            }
+
+            update() {
+                this.vx *= 0.97;
+                this.vy *= 0.97;
+                this.vy += this.gravity;
+                this.x += this.vx;
+                this.y += this.vy;
+                this.alpha -= this.decay;
+            }
+
+            draw() {
+                fwCtx.save();
+                fwCtx.globalAlpha = Math.max(0, this.alpha);
+                fwCtx.beginPath();
+                fwCtx.arc(this.x, this.y, 3, 0, Math.PI * 2);
+                fwCtx.fillStyle = this.color;
+                fwCtx.shadowBlur = 12;
+                fwCtx.shadowColor = this.color;
+                fwCtx.fill();
+                fwCtx.restore();
+            }
+        }
+
+        function createFireworkCluster(x, y) {
+            const palette = ['#FFD700', '#FF1493', '#00FFFF', '#FF4500', '#7B68EE', '#00FF7F'];
+            const color = palette[Math.floor(Math.random() * palette.length)];
+            for (let i = 0; i < 75; i++) {
+                fwParticles.push(new ProParticle(x, y, color));
+            }
+        }
+
+        function animateFireworks() {
+            fwCtx.fillStyle = 'rgba(8, 3, 26, 0.2)';
+            fwCtx.fillRect(0, 0, fwCanvas.width, fwCanvas.height);
+
+            for (let i = fwParticles.length - 1; i >= 0; i--) {
+                fwParticles[i].update();
+                fwParticles[i].draw();
+                if (fwParticles[i].alpha <= 0) {
+                    fwParticles.splice(i, 1);
+                }
+            }
+            requestAnimationFrame(animateFireworks);
+        }
+
+        function triggerGrandFireworks() {
+            for (let i = 0; i < 6; i++) {
+                setTimeout(() => {
+                    const x = Math.random() * fwCanvas.width;
+                    const y = Math.random() * fwCanvas.height * 0.55;
+                    createFireworkCluster(x, y);
+                }, i * 250);
+            }
+
+            confetti({
+                particleCount: 120,
+                spread: 80,
+                origin: { y: 0.6 }
+            });
+        }
+
+        function createBalloons() {
+            const container = document.getElementById('balloonsContainer');
+            const colors = ['#ff4081', '#7c4dff', '#00e5ff', '#ffeb3b', '#00e676', '#ff9100'];
+            for (let i = 0; i < 16; i++) {
+                const balloon = document.createElement('div');
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                const size = Math.random() * 25 + 35;
+                
+                balloon.className = 'absolute rounded-full opacity-70 border-t-2 border-white/40 shadow-2xl';
+                balloon.style.width = `${size}px`;
+                balloon.style.height = `${size * 1.25}px`;
+                balloon.style.left = `${Math.random() * 100}%`;
+                balloon.style.bottom = `-120px`;
+                balloon.style.backgroundColor = color;
+                balloon.style.boxShadow = `inset -6px -6px 15px rgba(0,0,0,0.35), 0 0 20px ${color}`;
+                balloon.style.animation = `balloonRise ${Math.random() * 10 + 12}s linear infinite`;
+                balloon.style.animationDelay = `${Math.random() * 8}s`;
+
+                const string = document.createElement('div');
+                string.className = 'absolute top-full left-1/2 w-0.5 h-14 bg-white/30 transform -translate-x-1/2';
+                balloon.appendChild(string);
+
+                container.appendChild(balloon);
+            }
+        }
+
+        const balloonStyle = document.createElement('style');
+        balloonStyle.innerHTML = `
+            @keyframes balloonRise {
+                0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+                10% { opacity: 0.8; }
+                90% { opacity: 0.8; }
+                100% { transform: translateY(-125vh) rotate(15deg); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(balloonStyle);
+
+        let audioCtx = null;
+        let isPlayingMusic = false;
+        let synthTimeout = null;
+
+        const melodyNotes = [
+            { note: 261.63, dur: 0.35 }, { note: 261.63, dur: 0.25 }, { note: 293.66, dur: 0.6 },
+            { note: 261.63, dur: 0.6 },  { note: 349.23, dur: 0.6 },  { note: 329.63, dur: 1.0 },
+            { note: 261.63, dur: 0.35 }, { note: 261.63, dur: 0.25 }, { note: 293.66, dur: 0.6 },
+            { note: 261.63, dur: 0.6 },  { note: 392.00, dur: 0.6 },  { note: 349.23, dur: 1.0 },
+            { note: 261.63, dur: 0.35 }, { note: 261.63, dur: 0.25 }, { note: 523.25, dur: 0.6 },
+            { note: 440.00, dur: 0.6 },  { note: 349.23, dur: 0.6 },  { note: 329.63, dur: 0.6 }, { note: 293.66, dur: 0.8 }
+        ];
+
+        function playSynthNote(freq, duration) {
+            if (!audioCtx) return;
+            try {
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+
+                gain.gain.setValueAtTime(0.18, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration - 0.05);
+
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                osc.start();
+                osc.stop(audioCtx.currentTime + duration);
+            } catch (e) {
+                console.error(e);
+            }
+        }
+
+        function runMelodyLoop() {
+            let idx = 0;
+            function step() {
+                if (!isPlayingMusic) return;
+                const n = melodyNotes[idx];
+                playSynthNote(n.note, n.dur);
+                idx = (idx + 1) % melodyNotes.length;
+                synthTimeout = setTimeout(step, n.dur * 1000);
+            }
+            step();
+        }
+
+        function toggleAudio() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+
+            const btnText = document.getElementById('musicText');
+            const btnIcon = document.getElementById('musicIcon');
+
+            if (isPlayingMusic) {
+                isPlayingMusic = false;
+                clearTimeout(synthTimeout);
+                btnText.innerText = "Bật Nhạc";
+                btnIcon.className = "fa-solid fa-music text-pink-400";
+            } else {
+                isPlayingMusic = true;
+                runMelodyLoop();
+                btnText.innerText = "Tắt Nhạc";
+                btnIcon.className = "fa-solid fa-volume-high text-green-400 animate-pulse";
+            }
+        }
+
+        let isMicActive = false;
+        let micStream = null;
+
+        async function toggleMicBlowDetection() {
+            if (isMicActive) {
+                if (micStream) micStream.getTracks().forEach(t => t.stop());
+                isMicActive = false;
+                document.getElementById('micStatusText').innerText = "Bật Micro Thổi Nến";
+                document.getElementById('micIcon').className = "fa-solid fa-microphone text-cyan-400";
+                return;
+            }
+
+            try {
+                micStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                
+                const analyser = audioCtx.createAnalyser();
+                analyser.fftSize = 256;
+                const microphone = audioCtx.createMediaStreamSource(micStream);
+                microphone.connect(analyser);
+
+                const dataArray = new Uint8Array(analyser.frequencyBinCount);
+                isMicActive = true;
+
+                document.getElementById('micStatusText').innerText = "Micro Đang Lắng Nghe...";
+                document.getElementById('micIcon').className = "fa-solid fa-microphone-lines text-red-400 animate-ping";
+
+                function checkVolume() {
+                    if (!isMicActive || appState.candlesBlown) return;
+                    analyser.getByteFrequencyData(dataArray);
+                    
+                    let sum = 0;
+                    for (let i = 0; i < dataArray.length; i++) {
+                        sum += dataArray[i];
+                    }
+                    let average = sum / dataArray.length;
+
+                    // Blow detection threshold
+                    if (average > 50) {
+                        blowOutCandles();
+                    } else {
+                        requestAnimationFrame(checkVolume);
+                    }
+                }
+                checkVolume();
+
+            } catch (err) {
+                showToast("Không thể truy cập Micro. Bạn vẫn có thể nhấn nút để thổi nến!");
+            }
+        }
+
+        function blowOutCandles() {
+            if (appState.candlesBlown) {
+                triggerGrandFireworks();
+                return;
+            }
+
+            appState.candlesBlown = true;
+
+            const flames = document.querySelectorAll('.flame');
+            flames.forEach(flame => {
+                const parent = flame.parentElement;
+                flame.style.display = 'none';
+
+                const smoke = document.createElement('div');
+                smoke.className = 'smoke-particle';
+                parent.appendChild(smoke);
+            });
+
+            const prompt = document.getElementById('blowPrompt');
+            prompt.innerHTML = '<i class="fa-solid fa-wand-magic-sparkles text-amber-300 text-lg"></i><span>Ước nguyện sinh nhật đã tỏa sáng lên vũ trụ! ✨</span>';
+            prompt.className = "mb-5 px-6 py-2.5 rounded-2xl bg-emerald-500/20 border border-emerald-400/40 backdrop-blur-xl text-emerald-200 text-xs md:text-sm font-bold shadow-2xl flex items-center space-x-3 animate-pulse";
+
+            if (!isPlayingMusic) toggleAudio();
+            triggerGrandFireworks();
+
+            setTimeout(() => {
+                openUnboxingExperience();
+            }, 1200);
+        }
+
+        function openUnboxingExperience() {
+            const lid = document.getElementById('giftLid');
+            lid.style.transform = 'translateY(-60px) rotate(-15deg)';
+            
+            triggerGrandFireworks();
+
+            setTimeout(() => {
+                if (appState.photos.length > 0) {
+                    document.getElementById('cardHighlightPhoto').src = appState.photos[0];
+                }
+                openModal('cardModal');
+                startTypingEffect();
+            }, 400);
+        }
+
+        function startTypingEffect() {
+            const container = document.getElementById('typedMessageContainer');
+            container.innerHTML = '';
+            const text = appState.message;
+            let i = 0;
+
+            function type() {
+                if (i < text.length) {
+                    container.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, 30);
+                }
+            }
+            type();
+        }
+
+        function flipCard(isFlipped) {
+            const inner = document.getElementById('cardInner');
+            if (isFlipped) {
+                inner.classList.add('is-flipped');
+            } else {
+                inner.classList.remove('is-flipped');
+            }
+        }
+
+        function applyCustomizations() {
+            appState.name = document.getElementById('inputName').value.trim() || 'Công Chúa Nhỏ';
+            appState.age = parseInt(document.getElementById('inputAge').value) || 18;
+            appState.sender = document.getElementById('inputSender').value.trim() || 'Một Người Bạn Thân Yêu ❤️';
+            appState.message = document.getElementById('inputMessage').value.trim() || 'Chúc mừng sinh nhật!';
+
+            renderDOMState();
+            closeModal('customizeModal');
+            showToast("Đã cập nhật thông tin thành công!");
+            triggerGrandFireworks();
+        }
+
+        function generateShareableLink() {
+            applyCustomizations();
+            const payload = {
+                name: appState.name,
+                age: appState.age,
+                sender: appState.sender,
+                message: appState.message
+            };
+
+            const encoded = encodeURIComponent(JSON.stringify(payload));
+            const fullUrl = `${window.location.origin}${window.location.pathname}#${encoded}`;
+
+            const tempInput = document.createElement('input');
+            tempInput.value = fullUrl;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            showToast("Đã sao chép Link chia sẻ cá nhân hóa vào bộ nhớ tạm!");
+        }
+
+        // Modal Helpers
+        function openModal(id) {
+            const m = document.getElementById(id);
+            m.classList.remove('opacity-0', 'pointer-events-none');
+        }
+
+        function closeModal(id) {
+            const m = document.getElementById(id);
+            m.classList.add('opacity-0', 'pointer-events-none');
+            if (id === 'cardModal') flipCard(false);
+        }
+
+        function showToast(msg) {
+            const toast = document.createElement('div');
+            toast.className = 'fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 bg-amber-400 text-slate-950 px-6 py-3 rounded-2xl font-bold shadow-2xl transition-all duration-500 text-xs md:text-sm flex items-center space-x-2 border border-amber-200';
+            toast.innerHTML = `<i class="fa-solid fa-circle-check text-base text-slate-950"></i><span>${msg}</span>`;
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                setTimeout(() => toast.remove(), 500);
+            }, 3200);
+        }
+
+        window.addEventListener('resize', () => {
+            resizeStarCanvas();
+            resizeFwCanvas();
+        });
+
+        window.onload = function() {
+            resizeStarCanvas();
+            resizeFwCanvas();
+            drawStars();
+            animateFireworks();
+            createBalloons();
+            initDataFromUrl();
+        };
+    </script>
+</body>
+</html>
