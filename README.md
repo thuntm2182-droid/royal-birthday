@@ -1,2 +1,2 @@
 # royal-birthday
-húc mừng sinh nhật chị Hai
+chúc mừng sinh nhật chị Hai
